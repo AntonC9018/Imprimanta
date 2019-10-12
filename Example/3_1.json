@@ -1,0 +1,14 @@
+{
+    "inputs": [
+        12,
+        13,
+        14
+    ],
+    "task": "var. 5, nr. 5",
+    "condition": [
+        "Sa se realizeze schema-bloc unde",
+        "`{(w = sqrt(a * t^2 + b * cos(t) + 1), t < 0.1),(w = a * t + b, t = 0.1),(w = sqrt(a * t * t + b * cos(t) + 1), t > 0.1):}`",
+        "GOT IT???"
+    ],
+    "ioscheme": [1, 3, 1]
+}

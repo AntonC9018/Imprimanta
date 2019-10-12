@@ -1,0 +1,208 @@
+<html>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script>MathJax = {
+        loader: { load: ['input/asciimath', 'output/chtml', 'ui/menu'] },
+    };
+
+    $('body').append('<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js">')</script>
+<style>
+    body {
+    padding: 50px;
+}
+
+#code, #console {
+    font-family: monospace;
+    width: 500px;
+    min-height: 150px;
+    border: 1px solid black;
+    display: inline-block;
+    background-color: rgb(240, 240, 240);
+}
+
+#code {
+    padding-left: 0;
+}
+
+.line-number {
+    text-align: center;
+    width: 20px;
+    /* background-color: rgb(176, 175, 194); */
+}
+
+.code-string {  
+    padding-left: 7px;  
+    width: 100%;
+    /* background-color: rgb(220, 220, 220);  */
+}
+
+.code-line {
+    display: flex;    
+}
+
+.console-string {
+    width: 100%;
+    padding-left: 7px;
+}
+</style>
+
+<body>
+
+    <p>
+        var. 5, nr. 5
+    </p>
+    <h2>
+        Conditie
+    </h2>
+    <p id="condition">
+        Sa se realizeze schema-bloc unde `{(w = sqrt(a * t^2 + b * cos(t) + 1), t < 0.1),(w = a * t + b, t = 0.1),(w = sqrt(a * t * t + b * cos(t) + 1), t > 0.1):}` GOT IT???
+    </p>
+    <h2>
+        Cod
+    </h2>
+    <ol id="code">
+        
+                    <li class="code-line">
+                        <span class="line-number">0</span>
+                        <span class="code-string">#include&nbsp;&lt;stdio.h&gt;</span>
+                    </li> 
+                
+                    <li class="code-line">
+                        <span class="line-number">1</span>
+                        <span class="code-string">#include&nbsp;&lt;math.h&gt;</span>
+                    </li> 
+                
+                    <li class="code-line">
+                        <span class="line-number">2</span>
+                        <span class="code-string"></span>
+                    </li> 
+                
+                    <li class="code-line">
+                        <span class="line-number">3</span>
+                        <span class="code-string">float&nbsp;a,&nbsp;b,&nbsp;t;</span>
+                    </li> 
+                
+                    <li class="code-line">
+                        <span class="line-number">4</span>
+                        <span class="code-string">float&nbsp;w;</span>
+                    </li> 
+                
+                    <li class="code-line">
+                        <span class="line-number">5</span>
+                        <span class="code-string"></span>
+                    </li> 
+                
+                    <li class="code-line">
+                        <span class="line-number">6</span>
+                        <span class="code-string">int&nbsp;main()&nbsp;{</span>
+                    </li> 
+                
+                    <li class="code-line">
+                        <span class="line-number">7</span>
+                        <span class="code-string">&nbsp;&nbsp;&nbsp;&nbsp;puts("Introduceti&nbsp;variabile&nbsp;a,&nbsp;b,&nbsp;t:");</span>
+                    </li> 
+                
+                    <li class="code-line">
+                        <span class="line-number">8</span>
+                        <span class="code-string">&nbsp;&nbsp;&nbsp;&nbsp;scanf("%f%f%f",&nbsp;&a,&nbsp;&b,&nbsp;&t);</span>
+                    </li> 
+                
+                    <li class="code-line">
+                        <span class="line-number">9</span>
+                        <span class="code-string"></span>
+                    </li> 
+                
+                    <li class="code-line">
+                        <span class="line-number">10</span>
+                        <span class="code-string"></span>
+                    </li> 
+                
+                    <li class="code-line">
+                        <span class="line-number">11</span>
+                        <span class="code-string">&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(t&nbsp;&lt;&nbsp;0.1)&nbsp;{</span>
+                    </li> 
+                
+                    <li class="code-line">
+                        <span class="line-number">12</span>
+                        <span class="code-string">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;w&nbsp;=&nbsp;sqrt(a&nbsp;*&nbsp;t&nbsp;*&nbsp;t&nbsp;+&nbsp;b&nbsp;*&nbsp;sin(t)&nbsp;+&nbsp;1);</span>
+                    </li> 
+                
+                    <li class="code-line">
+                        <span class="line-number">13</span>
+                        <span class="code-string">&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;if&nbsp;(t&nbsp;&gt;&nbsp;0.1)&nbsp;{</span>
+                    </li> 
+                
+                    <li class="code-line">
+                        <span class="line-number">14</span>
+                        <span class="code-string">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;w&nbsp;=&nbsp;sqrt(a&nbsp;*&nbsp;t&nbsp;*&nbsp;t&nbsp;+&nbsp;b&nbsp;*&nbsp;cos(t)&nbsp;+&nbsp;1);</span>
+                    </li> 
+                
+                    <li class="code-line">
+                        <span class="line-number">15</span>
+                        <span class="code-string">&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;{</span>
+                    </li> 
+                
+                    <li class="code-line">
+                        <span class="line-number">16</span>
+                        <span class="code-string">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;w&nbsp;=&nbsp;a&nbsp;*&nbsp;t&nbsp;+&nbsp;b;</span>
+                    </li> 
+                
+                    <li class="code-line">
+                        <span class="line-number">17</span>
+                        <span class="code-string">&nbsp;&nbsp;&nbsp;&nbsp;}</span>
+                    </li> 
+                
+                    <li class="code-line">
+                        <span class="line-number">18</span>
+                        <span class="code-string"></span>
+                    </li> 
+                
+                    <li class="code-line">
+                        <span class="line-number">19</span>
+                        <span class="code-string">&nbsp;&nbsp;&nbsp;&nbsp;printf("W&nbsp;=&nbsp;%f",&nbsp;3.3f);</span>
+                    </li> 
+                
+                    <li class="code-line">
+                        <span class="line-number">20</span>
+                        <span class="code-string"></span>
+                    </li> 
+                
+                    <li class="code-line">
+                        <span class="line-number">21</span>
+                        <span class="code-string">&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;0;</span>
+                    </li> 
+                
+                    <li class="code-line">
+                        <span class="line-number">22</span>
+                        <span class="code-string">}</span>
+                    </li> 
+                
+    </ol>
+    <h2>
+        Consola
+    </h2>
+    <div id="console">
+        
+                <div>
+                    <div class="console-string">Introduceti&nbspvariabile&nbspa,&nbspb,&nbspt:</div>
+                </div>        
+            
+                <div>
+                    <div class="console-string">>&nbsp12</div>
+                </div>        
+            
+                <div>
+                    <div class="console-string">>&nbsp13</div>
+                </div>        
+            
+                <div>
+                    <div class="console-string">>&nbsp14</div>
+                </div>        
+            
+                <div>
+                    <div class="console-string">W&nbsp=&nbsp3.300000</div>
+                </div>        
+            
+    </div>
+</body>
+
+</html>
