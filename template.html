@@ -1,0 +1,73 @@
+<html>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script>MathJax = {
+        loader: { load: ['input/asciimath', 'output/chtml', 'ui/menu'] },
+    };
+
+    $('body').append('<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js">')</script>
+<style>
+    body {
+    padding: 50px;
+}
+
+#code, #console {
+    font-family: monospace;
+    width: 500px;
+    min-height: 150px;
+    border: 1px solid black;
+    display: inline-block;
+    background-color: rgb(240, 240, 240);
+}
+
+#code {
+    padding-left: 0;
+}
+
+.line-number {
+    text-align: center;
+    width: 20px;
+    /* background-color: rgb(176, 175, 194); */
+}
+
+.code-string {  
+    padding-left: 7px;  
+    width: 100%;
+    /* background-color: rgb(220, 220, 220);  */
+}
+
+.code-line {
+    display: flex;    
+}
+
+.console-string {
+    width: 100%;
+    padding-left: 7px;
+}
+</style>
+
+<body>
+
+    <p>
+        _TASK
+    </p>
+    <h2>
+        Conditie
+    </h2>
+    <p id="condition">
+        _CONDITION
+    </p>
+    <h2>
+        Cod
+    </h2>
+    <ol id="code">
+        _CODE
+    </ol>
+    <h2>
+        Consola
+    </h2>
+    <div id="console">
+        _CONSOLE
+    </div>
+</body>
+
+</html>
