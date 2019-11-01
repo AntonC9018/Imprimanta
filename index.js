@@ -1,8 +1,6 @@
 
 const fs = require('fs-extra');
 const path = require('path');
-const mjAPI = require("mathjax-node");
-mjAPI.start();
 
 async function main() {
 
@@ -32,7 +30,8 @@ async function main() {
     // get the list of projects
     const code_filenames = fnames
         .filter(e => /(\.cpp)$|(\.c)$/.test(e))
-    
+        // ignore the ones that don't have an associated config file
+        .filter(e => fs.existsSync(`${ e.split('.')[0] }.json`))
 
     const projects = code_filenames
         .map(e => new Project(e))
@@ -115,11 +114,11 @@ class Project {
 
                 let objs = [
                     {
-                        arr: outputs,
+                        arr: outputs.filter(e => e.length > 0),
                         index: 0
                     },
                     {
-                        arr: inputs,
+                        arr: inputs.filter(e => e.length > 0),
                         index: 0
                     }                    
                 ]
@@ -146,7 +145,7 @@ class Project {
                 for (let i = 0; i < input_strings.length; i++) {
                     const msg = String(input_strings[i]);
                     inputs.push('> ' + msg);
-                    await write(sink, msg);
+                    await write(sink, msg + '\n');
                 }
             } 
             
@@ -157,17 +156,10 @@ class Project {
     async join(template) {
 
         // set the task
-        template.setTask(this.config.task);
+        template.setTask(this.config.task || "");
 
         // set the condition
         const cd = this.config.condition;
-
-        // for (let i = 0; i < cd.length; i++) {
-        //     if (cd[i][0] == '`') {
-        //         // evaluate math expressions
-        //         cd[i] = await evalMath(cd[i].slice(1));
-        //     }
-        // }
 
         template.setCondition(cd.join(' '));
 
@@ -208,24 +200,6 @@ function write(process, text) {
         process.stdin.write(text, () => {
             resolve()
         })
-    })
-}
-
-
-function evalMath(latex) {
-    return new Promise((resolve, reject) => {
-        mjAPI.typeset({
-                math: latex,
-                format: "TeX",
-                mml: true,
-            }, data => {
-                if (data.errors) {
-                    reject(data.errors);
-                } else {
-                    resolve(data.mml);
-                }
-            })
-
     })
 }
 
